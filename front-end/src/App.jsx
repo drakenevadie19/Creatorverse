@@ -1,10 +1,10 @@
 import './App.css'
 
 import { BrowserRouter, Routes, Route  } from 'react-router-dom';
-import ListOfCreators from './components/list-of-creators';
-import EditACreator from './components/edit-a-creator';
-import AddNewCreator from './components/add-a-creator';
-import ViewACreatorDetails from './components/view-a-creator-detail';
+import ShowCreators from './components/list-of-creators';
+import EditCreator from './components/edit-a-creator';
+import AddCreator from './components/add-a-creator';
+import ViewCreator from './components/view-a-creator-detail';
 import MainFrame from './components/main-frame';
 
 function App() {
@@ -14,10 +14,10 @@ function App() {
         <div className='App'>
           <Routes>
             <Route path="/" element={<MainFrame />}>
-              <Route path="" element={<ListOfCreators />} />
-              <Route path="new" element={<AddNewCreator />} />
-              <Route path="edit/:id" element={<EditACreator />} />
-              <Route path=":id" element={<ViewACreatorDetails />}/>
+              <Route path="" element={<ShowCreators />} />
+              <Route path="new" element={<AddCreator />} />
+              <Route path="edit/:id" element={<EditCreator />} />
+              <Route path=":id" element={<ViewCreator />}/>
             </Route>
           </Routes>
         </div>
