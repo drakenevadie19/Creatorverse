@@ -1,11 +1,12 @@
 import './App.css'
 
 import { BrowserRouter, Routes, Route  } from 'react-router-dom';
-import ShowCreators from './components/list-of-creators';
+import ShowCreators from './components/View All Creators/list-of-creators';
 import EditCreator from './components/edit-a-creator';
 import AddCreator from './components/add-a-creator';
 import ViewCreator from './components/view-a-creator-detail';
 import MainFrame from './components/main-frame';
+import dummyData from './components/dummy-data';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <div className='App'>
           <Routes>
             <Route path="/" element={<MainFrame />}>
-              <Route path="" element={<ShowCreators />} />
+              <Route path="" element={<ShowCreators data={dummyData} />} />
               <Route path="new" element={<AddCreator />} />
               <Route path="edit/:id" element={<EditCreator />} />
               <Route path=":id" element={<ViewCreator />}/>
