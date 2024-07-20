@@ -1,7 +1,7 @@
 const DisplayCreatorFrame = ({ profile }) => {
     return (
         <>
-            <div className="creator-frame">
+            <div className="creator-frame" style={{backgroundImage:`${profile.image}`, backgroundColor: 'red'}}>
                 {/* Creator Name */}
                 <h1>{profile.name}</h1>
 

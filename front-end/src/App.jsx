@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route  } from 'react-router-dom';
 import ShowCreators from './components/View All Creators/list-of-creators';
 import EditCreator from './components/edit-a-creator';
 import AddCreator from './components/add-a-creator';
-import ViewCreator from './components/view-a-creator-detail';
+import ViewCreator from './components/View A Creator/view-a-creator-detail';
 import MainFrame from './components/main-frame';
 import dummyData from './components/dummy-data';
 
@@ -18,7 +18,7 @@ function App() {
               <Route path="" element={<ShowCreators data={dummyData} />} />
               <Route path="new" element={<AddCreator />} />
               <Route path="edit/:id" element={<EditCreator />} />
-              <Route path=":id" element={<ViewCreator />}/>
+              <Route path=':id' element={<ViewCreator />}/>
             </Route>
           </Routes>
         </div>
@@ -27,4 +27,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
