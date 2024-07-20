@@ -33,20 +33,22 @@ const EditCreator = () => {
 
     return (
         <>
-            <h1>Form to edit a new creator</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={name} placeholder="Text" aria-label="Text" onChange={(e) => setName(e.target.value)} />
-                <input type="text" value={image} placeholder="Text" aria-label="Text" onChange={(e) => setImage(e.target.value)} />
-                <input type="text" value={description} placeholder="Text" aria-label="Text" onChange={(e) => setDescription(e.target.value)} />
-                <input type="text" value={youtubeLink} placeholder="Text" aria-label="Text" onChange={(e) => setYoutubeLink(e.target.value)} />
-                <input type="text" value={twitterLink} placeholder="Text" aria-label="Text" onChange={(e) => setTwitterLink(e.target.value)} />
-                <input type="text" value={instagramLink} placeholder="Text" aria-label="Text" onChange={(e) => setInstagramLink(e.target.value)} />
+            <div className="display-area">
+                <h1>Form to edit a new creator</h1>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" value={name} placeholder="Text" aria-label="Text" onChange={(e) => setName(e.target.value)} />
+                    <input type="text" value={image} placeholder="Text" aria-label="Text" onChange={(e) => setImage(e.target.value)} />
+                    <input type="text" value={description} placeholder="Text" aria-label="Text" onChange={(e) => setDescription(e.target.value)} />
+                    <input type="text" value={youtubeLink} placeholder="Text" aria-label="Text" onChange={(e) => setYoutubeLink(e.target.value)} />
+                    <input type="text" value={twitterLink} placeholder="Text" aria-label="Text" onChange={(e) => setTwitterLink(e.target.value)} />
+                    <input type="text" value={instagramLink} placeholder="Text" aria-label="Text" onChange={(e) => setInstagramLink(e.target.value)} />
 
-                <div>
-                    <button type="submit">Submit</button>
-                    <button onClick={handleDelete}>Delete</button>
-                </div>
-            </form>
+                    <div>
+                        <button type="submit" className="btn btn-info">Submit</button>
+                        <button onClick={handleDelete} className="btn btn-danger">Delete</button>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }

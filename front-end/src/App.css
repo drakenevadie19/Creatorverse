@@ -13,5 +13,51 @@
 .header {
   height: 70vh;
   width: 100%;
-  background: 'https://creatorverse-production.up.railway.app/static/media/banner.de5659898d3bfc5eb8ea.jpg';
+  background-image: url('https://creatorverse-production.up.railway.app/static/media/banner.de5659898d3bfc5eb8ea.jpg');
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border-bottom: 1px solid white;
+}
+
+.display-area {
+  width: 100%;
+}
+
+.list-of-blocks-of-creators {
+  width: 100%;
+  display: flex;
+  /* use flex-wrap here to auto pushing overflowed element to new line */
+  flex-wrap: wrap;
+  justify-content: center;
+
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+
+  gap: 15px;
+}
+
+.creator-frame {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 40%;
+  padding: 20px;
+}
+
+.creator-frame:hover {
+  border: 1px dotted dodgerblue;
+}
+
+.creator-card-name {
+  color: dodgerblue;
+}
+
+.creator-socialmedia {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
