@@ -21,10 +21,19 @@
   background-position: center;
 
   border-bottom: 1px solid white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .display-area {
-  width: 100%;
+  /* width: 100%; */
+
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 20px;
 }
 
 .list-of-blocks-of-creators {
@@ -32,11 +41,6 @@
   /* use flex-wrap here to auto pushing overflowed element to new line */
   flex-wrap: wrap;
   justify-content: center;
-
-  padding-top: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 20px;
 
   gap: 15px;
 }
@@ -70,4 +74,32 @@
 
 p {
   color: dodgerblue;
+}
+
+/* Details of a creator */
+.individual-creator {
+  display: flex;
+  gap: 5%;
+  flex-direction: row;
+}
+
+.creator-image {
+  width: 30%;
+}
+
+.creator-image-size {
+  width: 100%;
+  aspect-ratio: 3/4;
+}
+
+.individual-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-around;
 }
