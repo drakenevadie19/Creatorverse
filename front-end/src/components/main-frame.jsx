@@ -9,8 +9,8 @@ const MainFrame = () => {
                 <div className="header">
                     <h1>Creato Verse</h1>
                     <nav>
-                        <button onClick={() => navigate("/")}>VIEW ALL CREATORS</button>
-                        <button onClick={() => navigate("/new")}>ADD A CREATOR</button>
+                        <button type="button" className="btn btn-primary" onClick={() => navigate("/")}>VIEW ALL CREATORS</button>
+                        <button type="button" className="btn btn-primary" onClick={() => navigate("/new")}>ADD A CREATOR</button>
                     </nav>
                 </div>
 

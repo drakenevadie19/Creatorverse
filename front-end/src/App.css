@@ -8,6 +8,7 @@
 .App {
   height: 100%;
   width: 100%;
+  /* border: 0.2px solid white; */
 }
 
 .header {
@@ -27,7 +28,6 @@
 }
 
 .list-of-blocks-of-creators {
-  width: 100%;
   display: flex;
   /* use flex-wrap here to auto pushing overflowed element to new line */
   flex-wrap: wrap;
@@ -46,13 +46,19 @@
   border-radius: 10px;
   width: 40%;
   padding: 20px;
+  /* Adjust the opacity here */
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  opacity: 0.78;
+
 }
 
 .creator-frame:hover {
-  border: 1px dotted dodgerblue;
+  /* border: 1px dotted dodgerblue;  */
+  opacity: 1;
 }
 
 .creator-card-name {
+  /* color: rgb(118, 179, 240); */
   color: dodgerblue;
 }
 
@@ -60,4 +66,8 @@
   display: flex;
   flex-direction: row;
   gap: 15px;
+}
+
+p {
+  color: dodgerblue;
 }
