@@ -1,8 +1,8 @@
 import DisplayCreatorFrame from "./display-creator-frame";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const ShowCreators = ({ data }) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     
     return (
         <>
@@ -10,8 +10,8 @@ const ShowCreators = ({ data }) => {
                 <h1>List of Creators</h1>
                 <div className="list-of-blocks-of-creators">
                     {data.map((profile, index) => (
-                        <div className="creator-frame" key={index}  style={{ backgroundImage: `url(${profile.image})` }} onClick={() => navigate(`/${index}`)}>
-                            <DisplayCreatorFrame profile={profile} />
+                        <div className="creator-frame" key={index}  style={{ backgroundImage: `url(${profile.image})` }}>
+                            <DisplayCreatorFrame id={index} />
                         </div>
                         
                     ))}

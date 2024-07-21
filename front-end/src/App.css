@@ -30,10 +30,11 @@
 .display-area {
   /* width: 100%; */
 
-  padding-top: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 20px;
+  padding-top: 50px;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-bottom: 50px;
+  /* padding: 50px 150px; */
 }
 
 .list-of-blocks-of-creators {
@@ -49,7 +50,8 @@
   border: 1px solid white;
   border-radius: 10px;
   width: 40%;
-  padding: 20px;
+  
+  padding: 25px;
   /* Adjust the opacity here */
   /* background-color: rgba(0, 0, 0, 0.5); */
   opacity: 0.78;
@@ -64,6 +66,13 @@
 .creator-card-name {
   /* color: rgb(118, 179, 240); */
   color: dodgerblue;
+}
+
+.creator-card-name-frame {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .creator-socialmedia {
@@ -95,6 +104,7 @@ p {
 .individual-info {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .button-group {
@@ -102,4 +112,23 @@ p {
   flex-direction: row;
   gap: 20px;
   justify-content: space-around;
+}
+
+.social-media-display {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 20px;
+}
+
+.social-media-display:hover {
+  border: 1px solid white;
+  background-color: cyan;
+  border-radius: 20px;
+  color: black;
+  padding-left: 40px;
+}
+
+h5 {
+  margin: 0;
 }

@@ -34,6 +34,20 @@ a:hover {
   /* line-height: 1.1; */
 }
 
+.deleteButton {
+  background-color: #d1001f;
+  /* opacity: 0.9; */
+}
+
+.deleteButton:hover {
+  background-color: red;
+  opacity: 1.25;
+}
+
+input {
+  width: 40%;
+}
+
 /* body {
   margin: 0;
   display: flex;
