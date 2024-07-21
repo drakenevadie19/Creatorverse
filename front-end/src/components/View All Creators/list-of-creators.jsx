@@ -7,7 +7,7 @@ const ShowCreators = ({ data }) => {
     return (
         <>
             <div className="display-area">
-                <h1>List of Creators</h1>
+                {/* <h1>List of Creators</h1> */}
                 <div className="list-of-blocks-of-creators">
                     {data.map((profile, index) => (
                         <div className="creator-frame" key={index}  style={{ backgroundImage: `url(${profile.image})` }}>

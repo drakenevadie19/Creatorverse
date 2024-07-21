@@ -99,6 +99,7 @@ p {
 .creator-image-size {
   width: 100%;
   aspect-ratio: 3/4;
+  border-radius: 20px;
 }
 
 .individual-info {

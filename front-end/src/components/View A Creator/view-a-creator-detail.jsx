@@ -19,8 +19,8 @@ const ViewCreator = () => {
     
     return (
         <>
-            <div className="display-area">
-                <h1>Details of a creator</h1>
+            <div className="display-area" id="details">
+                {/* <h1>Details of a creator</h1> */}
                 <div className="individual-creator">
                     <div className="creator-image">
                         <img src={`${profile.image}`} className="creator-image-size" alt="Image here"/>
