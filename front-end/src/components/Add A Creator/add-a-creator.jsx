@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import dummyData from "../dummy-data";
+// import dummyData from "../dummy-data";
+import { supabase } from "../../database/client";
 
 const AddCreator = () => {
-    const currentNumberOfCreators = dummyData.length;
+    // const currentNumberOfCreators = dummyData.length;
 
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
@@ -14,16 +15,31 @@ const AddCreator = () => {
 
     const navigate = useNavigate();
 
+    async function createThisCreator() {
+        const response = await supabase
+            .from('creators')
+            .insert({
+                name: name,
+                imageURL: image,
+                description: description,
+                youtubeLink: youtubeLink, 
+                twitterLink: twitterLink,
+                instagramLink: instagramLink
+            });
+    
+        return response;
+    }
+    
+
     const handleSubmit = ()=> {
-        dummyData.push({
-            id: currentNumberOfCreators+1,
-            name: name,
-            image: image,
-            description: description,
-            youtubeLink: youtubeLink, 
-            twitterLink: twitterLink,
-            instagramLink: instagramLink
-        });
+        const response = createThisCreator();
+
+        if (response.error) {
+            console.error('Error inserting data:', response.error);
+        } else if (response.status === 201) {
+            console.log('Data inserted successfully!');
+        }
+
         navigate("/");
     }
 

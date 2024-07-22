@@ -36,18 +36,24 @@ const ViewCreator = () => {
         navigate(`/edit/${id}`);
     }
 
-    const handleDelete = async () => {
-        const response= await supabase
-            .from('creators')
-            .delete()
-            .eq('id', id);
-        
-        if (response.status !== 200) {
-            console.error('Error deleting data');
+    async function deleteThisCreator(id) {
+        const response = await supabase
+        .from('creators')
+        .delete()
+        .eq('id', id);
+
+        return response.status;
+    }
+
+    const handleDelete =  () => {
+        const status = deleteThisCreator(id);
+    
+        if (status !== 200) {
+            console.error('Error deleting data!');
         } else {
-            console.log('Data deleted successfully');
-            navigate("/");
+            console.log('Data deleted successfully!');
         }
+        navigate("/");
     }
     
     return (

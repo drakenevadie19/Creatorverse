@@ -44,33 +44,48 @@ const EditCreator = () => {
         }
         
         getThatCreatorById(id);
-    }, [])
+    }, []);
 
-    const handleSubmit = async ()=> {
+    async function updateThisCreator(id) {
         const response = await supabase
-            .from('creators')
-            .update({ name: name, imageURL: imageURL, description: description, youtubeLink: youtubeLink, twitterLink: twitterLink, instagramLink: instagramLink })
-            .eq('id', id);
-        if (response.status !== 200) {
-            console.log("Error updating data", response);
-        } else {
-            console.log("Successfully updating data");
-            navigate("/");
-        }
+        .from('creators')
+        .update({ name: name, imageURL: imageURL, description: description, youtubeLink: youtubeLink, twitterLink: twitterLink, instagramLink: instagramLink })
+        .eq('id', id);
+
+        return response.status;
     }
 
-    const handleDelete = async () => {
+    const handleSubmit = ()=> {
+
+        const status = updateThisCreator(id);
+        
+        if (status !== 200) {
+            console.log("Error updating data");
+        } else {
+            console.log("Successfully updating data");
+        }
+
+        navigate("/");
+    }
+
+    async function deleteThisCreator(id) {
         const response = await supabase
-            .from('creators')
-            .delete()
-            .eq('id', id);
+        .from('creators')
+        .delete()
+        .eq('id', id);
+
+        return response.status
+    }
+
+    const handleDelete = () => {
+        const status = deleteThisCreator(id);
     
-        if (response.status !== 200) {
-            console.error('Error deleting data:', response);
+        if (status !== 200) {
+            console.error('Error deleting data!');
         } else {
             console.log('Data deleted successfully!');
-            navigate("/");
         }
+        navigate("/");
     }
 
     return (

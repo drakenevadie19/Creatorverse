@@ -23,13 +23,20 @@ const ShowCreators = () => {
         <>
             <div className="display-area">
                 {/* <h1>List of Creators</h1> */}
-                <div className="list-of-blocks-of-creators">
-                    {data.map((profile, index) => (
-                        <div className="creator-frame" key={index} style={{ backgroundImage: `url(${profile.imageURL})` }}>
-                            <DisplayCreatorFrame profile={profile} id={profile.id} />
-                        </div>
-                    ))}
-                </div>
+                {
+                    data.length > 0 
+                    ?
+                    <div className="list-of-blocks-of-creators">
+                        {data.map((profile, index) => (
+                            <div className="creator-frame" key={index} style={{ backgroundImage: `url(${profile.imageURL})` }}>
+                                <DisplayCreatorFrame profile={profile} id={profile.id} />
+                            </div>
+                        ))}
+                    </div>
+                    : 
+                    <h1>No content creators to show yet</h1>
+                }
+                
             </div>
         </>
     )
