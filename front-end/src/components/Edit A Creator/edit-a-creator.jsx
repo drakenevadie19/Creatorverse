@@ -1,34 +1,76 @@
 import { useNavigate, useParams } from "react-router-dom";
-import dummyData from "../dummy-data";
-import { useState } from "react";
-
+// import dummyData from "../dummy-data";
+import { useEffect, useState } from "react";
+import { supabase } from "../../database/client";
 
 const EditCreator = () => {
     const { id } = useParams();
-    const profile = dummyData[id];
 
-    const [name, setName] = useState(profile.name);
-    const [image, setImage] = useState(profile.image);
-    const [description, setDescription] = useState(profile.description);
-    const [youtubeLink, setYoutubeLink] = useState(profile.youtubeLink);
-    const [twitterLink, setTwitterLink] = useState(profile.twitterLink);
-    const [instagramLink, setInstagramLink] = useState(profile.instagramLink);
+    // const [name, setName] = useState(profile.name);
+    // const [image, setImage] = useState(profile.image);
+    // const [description, setDescription] = useState(profile.description);
+    // const [youtubeLink, setYoutubeLink] = useState(profile.youtubeLink);
+    // const [twitterLink, setTwitterLink] = useState(profile.twitterLink);
+    // const [instagramLink, setInstagramLink] = useState(profile.instagramLink);
+
+    const [name, setName] = useState("");
+    const [imageURL, setImageURL] = useState("");
+    const [description, setDescription] = useState("");
+    const [youtubeLink, setYoutubeLink] = useState("");
+    const [twitterLink, setTwitterLink] = useState("");
+    const [instagramLink, setInstagramLink] = useState("");
 
     const navigate = useNavigate();
 
-    const handleSubmit = ()=> {
-        dummyData[id].name = name;
-        dummyData[id].image = image;
-        dummyData[id].description = description;
-        dummyData[id].youtubeLink = youtubeLink;
-        dummyData[id].twitterLink = twitterLink;
-        dummyData[id].instagramLink = instagramLink;
-        navigate("/");
+    useEffect(() => {
+        async function getThatCreatorById(id) {
+            const { data, error, status } = await supabase
+                .from('creators')
+                .select()
+                .eq('id', id)
+                .single();
+
+            if (status !== 200) {
+                console.error('Error fetching data:', error);
+                return null;
+            } else {
+                setName(data.name);
+                setImageURL(data.imageURL);
+                setDescription(data.description);
+                setYoutubeLink(data.youtubeLink);
+                setTwitterLink(data.twitterLink);
+                setInstagramLink(data.instagramLink);
+            }
+        }
+        
+        getThatCreatorById(id);
+    }, [])
+
+    const handleSubmit = async ()=> {
+        const response = await supabase
+            .from('creators')
+            .update({ name: name, imageURL: imageURL, description: description, youtubeLink: youtubeLink, twitterLink: twitterLink, instagramLink: instagramLink })
+            .eq('id', id);
+        if (response.status !== 200) {
+            console.log("Error updating data", response);
+        } else {
+            console.log("Successfully updating data");
+            navigate("/");
+        }
     }
 
-    const handleDelete = () => {
-        dummyData.splice(id, 1);
-        navigate("/");
+    const handleDelete = async () => {
+        const response = await supabase
+            .from('creators')
+            .delete()
+            .eq('id', id);
+    
+        if (response.status !== 200) {
+            console.error('Error deleting data:', response);
+        } else {
+            console.log('Data deleted successfully!');
+            navigate("/");
+        }
     }
 
     return (
@@ -42,7 +84,7 @@ const EditCreator = () => {
 
                     <label>Image</label>
                     <p><i>Provide a link to an image of your creator. Be sure to include the http://</i></p>
-                    <input type="text" value={image} aria-label="Text" onChange={(e) => setImage(e.target.value)} />
+                    <input type="text" value={imageURL} aria-label="Text" onChange={(e) => setImageURL(e.target.value)} />
 
                     <label>Description</label>
                     <p><i>Provide a description of the creator. Who are they? What makes them interesting?</i></p>

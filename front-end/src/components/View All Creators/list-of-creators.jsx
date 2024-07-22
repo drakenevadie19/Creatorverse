@@ -1,8 +1,23 @@
 import DisplayCreatorFrame from "./display-creator-frame";
 // import { useNavigate } from "react-router-dom";
+import { supabase } from "../../database/client";
+import { useEffect, useState } from "react";
 
-const ShowCreators = ({ data }) => {
-    // const navigate = useNavigate();
+const ShowCreators = () => {
+    const [data, setData] = useState([]);
+    
+    useEffect(() => {
+        async function getList() {
+            const { data, error } = await supabase.from("creators").select();
+            if (error) {
+                console.error("Error fetching data:", error);
+            } else {
+                setData(data);
+            }
+        }
+
+        getList();
+    }, []);
     
     return (
         <>
@@ -10,15 +25,13 @@ const ShowCreators = ({ data }) => {
                 {/* <h1>List of Creators</h1> */}
                 <div className="list-of-blocks-of-creators">
                     {data.map((profile, index) => (
-                        <div className="creator-frame" key={index}  style={{ backgroundImage: `url(${profile.image})` }}>
-                            <DisplayCreatorFrame id={index} />
+                        <div className="creator-frame" key={index} style={{ backgroundImage: `url(${profile.imageURL})` }}>
+                            <DisplayCreatorFrame profile={profile} id={profile.id} />
                         </div>
-                        
                     ))}
                 </div>
             </div>
         </>
-        
     )
 }
 

@@ -2,7 +2,7 @@ const dummyData = [
     {
         id: 0,
         name: "Do mixi",
-        image: "https://as1.ftcdn.net/v2/jpg/02/00/09/66/1000_F_200096607_ddMpEWJW7MI9JL3JKLX0NZefAPat8a7b.jpg",
+        image: "https://vcdn1-english.vnecdn.net/2020/11/26/streamer-mixi-1024x829-3037-1606374720.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=I7uuXzZBek8kxF5OqX1gcQ",
         description: "Do Tay", 
         youtubeLink: "Mixigaming",
         twitterLink: "Mixigaming", 

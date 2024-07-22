@@ -1,20 +1,53 @@
 import { useNavigate, useParams } from "react-router-dom";
-import dummyData from "../dummy-data";
-
+// import dummyData from "../dummy-data";
+import { useEffect, useState } from "react";
+import { supabase } from "../../database/client";
 
 const ViewCreator = () => {
-    const { id } = useParams();
-    const profile = dummyData[id];
-
     const navigate = useNavigate();
+    const { id } = useParams();
+    
+    const [profile, setProfile] = useState({});
+    // const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function getCreatorById(id) {
+            const response = await supabase
+                .from('creators')
+                .select()
+                .eq('id', id)
+                .single();
+    
+            if (response.status !== 200) {
+                console.error('Error fetching data:', response.error);
+                return null;
+            } else {
+                console.log("Successfully fetching data")
+                setProfile(response.data);
+                console.log(response)
+            }
+        }
+
+        getCreatorById(id);
+        console.log(profile);
+    }, [])
 
     const handleEdit = () => {
         navigate(`/edit/${id}`);
     }
 
-    const handleDelete = () => {
-        dummyData.splice(id, 1);
-        navigate("/");
+    const handleDelete = async () => {
+        const response= await supabase
+            .from('creators')
+            .delete()
+            .eq('id', id);
+        
+        if (response.status !== 200) {
+            console.error('Error deleting data');
+        } else {
+            console.log('Data deleted successfully');
+            navigate("/");
+        }
     }
     
     return (
@@ -23,7 +56,7 @@ const ViewCreator = () => {
                 {/* <h1>Details of a creator</h1> */}
                 <div className="individual-creator">
                     <div className="creator-image">
-                        <img src={`${profile.image}`} className="creator-image-size" alt="Image here"/>
+                        <img src={`${profile.imageURL}`} className="creator-image-size" alt="Image here"/>
                     </div>
                     <div className="individual-info">
                         <h1>{profile.name}</h1>
