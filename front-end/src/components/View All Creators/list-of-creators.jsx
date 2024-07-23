@@ -28,7 +28,7 @@ const ShowCreators = () => {
                     ?
                     <div className="list-of-blocks-of-creators">
                         {data.map((profile, index) => (
-                            <div className="creator-frame" key={index} style={{ backgroundImage: `url(${profile.imageURL})` }}>
+                            <div className="creator-frame" key={index} style={{ backgroundImage: `url(${profile.imageURL})`, backgroundSize: "100% 100%" }}>
                                 <DisplayCreatorFrame profile={profile} id={profile.id} />
                             </div>
                         ))}
