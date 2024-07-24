@@ -133,3 +133,12 @@ p {
 h5 {
   margin: 0;
 }
+
+.searchBar {
+  /* height: max-content; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
