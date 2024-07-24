@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 // import dummyData from "../dummy-data";
 import { useEffect, useState } from "react";
 import { supabase } from "../../database/client";
+// import Swal from 'sweetalert'
 
 const EditCreator = () => {
     const { id } = useParams();
