@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 // import dummyData from "../dummy-data";
 import { useEffect, useState } from "react";
 import { supabase } from "../../database/client";
+import swal from 'sweetalert';
 
 const ViewCreator = () => {
     const navigate = useNavigate();
@@ -52,6 +53,11 @@ const ViewCreator = () => {
             console.error('Error deleting data!');
         } else {
             console.log('Data deleted successfully!');
+            swal(
+                'Deleted!',
+                'The creator has been deleted.',
+                'success'
+            );
         }
         navigate("/");
     }
