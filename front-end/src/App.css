@@ -54,13 +54,13 @@
   padding: 25px;
   /* Adjust the opacity here */
   /* background-color: rgba(0, 0, 0, 0.5); */
-  opacity: 0.78;
+  opacity: 0.77;
 
 }
 
 .creator-frame:hover {
   /* border: 1px dotted dodgerblue;  */
-  opacity: 1;
+  opacity: 1.25;
 }
 
 .creator-card-name {
@@ -98,7 +98,7 @@ p {
 
 .creator-image-size {
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 9/16;
   border-radius: 20px;
 }
 

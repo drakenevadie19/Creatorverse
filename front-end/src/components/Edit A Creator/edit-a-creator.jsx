@@ -74,7 +74,7 @@ const EditCreator = () => {
         .delete()
         .eq('id', id);
 
-        return response.status
+        return response.status;
     }
 
     const handleDelete = () => {
