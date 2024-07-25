@@ -5,14 +5,14 @@ Responsibilities:
 - Build a frontend that supports CRUD (create, read, update, and delete) operations on favorite content creators. (Content creators can be Twitch streamers, YouTube channels, Instagram personalities, TikTok accounts, or similar).
 
 Techstack: 
-- Front-end: Vite, React, HTML, CSS, JavaScript, Pico, Bootstrap 5. 
+- Front-end: Vite, React, HTML, CSS, JavaScript, Pico, Bootstrap 5, SweetAlert. 
 - Database: Supabase.
 
 Submitted by: Thanh Nguyen (Drake) Do
 
 About this web app: CreatorVerse
 
-Time spent: 9 hours
+Time spent: 12 hours totally
 
 ## Required Features
 
@@ -39,7 +39,7 @@ The following **additional** features are implemented:
 - [x] Add a search box to search for content creator's name matching inputted searching criteria, using filter() method.
 - [x] Add using SweetAlert for confirming and annoucing whether CRUD actions successfull or failed.
 
-* [ ] List anything else that you added to improve the site's functionality!
+* [x] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
 
