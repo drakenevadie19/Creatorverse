@@ -1,9 +1,4 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Playwrite+PE:wght@100..400&display=swap');
 
 .App {
   height: 100%;
@@ -54,6 +49,7 @@
   padding: 25px;
   /* Adjust the opacity here */
   /* background-color: rgba(0, 0, 0, 0.5); */
+  aspect-ratio: 16/9;
   opacity: 0.77;
 
 }
@@ -82,7 +78,7 @@
 }
 
 p {
-  color: dodgerblue;
+  color: white;
 }
 
 /* Details of a creator */
@@ -98,7 +94,6 @@ p {
 
 .creator-image-size {
   width: 100%;
-  aspect-ratio: 9/16;
   border-radius: 20px;
 }
 
@@ -106,6 +101,12 @@ p {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.headerTitle {
+  font-size: 8em;
+  font-family: "Lobster", sans-serif;
+  /* line-height: 1.1; */
 }
 
 .button-group {
@@ -160,4 +161,45 @@ h5 {
   gap: 15px;
   border-radius: 20px;
   border: 1px solid red;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Responsive */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .headerTitle {
+    font-size: 50px;
+    /* display: none; */
+  }
+
+  .display-area {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .individual-creator {
+    flex-direction: column;
+  }
+
+  .creator-image {
+    width: 100%;
+  }
+
+  .list-of-blocks-of-creators {
+    flex-direction: column;
+  }
+
+  .creator-frame {
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
 }

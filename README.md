@@ -38,6 +38,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 - [x] Add a search box to search for content creator's name matching inputted searching criteria, using filter() method.
 - [x] Add using SweetAlert for confirming and annoucing whether CRUD actions successfull or failed.
+- [x] Responsive design for dynamic size of multiple devices.
 
 * [x] List anything else that you added to improve the site's functionality!
 
