@@ -46,7 +46,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://drive.google.com/file/d/1vavECPpNLL1meIrnr4Pj51NHn5R6HOhV/view?usp=sharing' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://drive.google.com/file/d/1yKIyImdXGv1mUDwGzqSGZKCj22aSLaww/view?usp=drive_link' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 ## Notes
