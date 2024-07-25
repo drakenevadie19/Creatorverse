@@ -25,7 +25,7 @@ const ViewCreator = () => {
             } else {
                 console.log("Successfully fetching data")
                 setProfile(response.data);
-                console.log(response)
+                // console.log(response)
             }
         }
 
@@ -38,26 +38,31 @@ const ViewCreator = () => {
     }
 
     async function deleteThisCreator(id) {
-        const response = await supabase
+        const { error } = await supabase
         .from('creators')
         .delete()
         .eq('id', id);
 
-        return response.status;
+        return error;
     }
 
     const handleDelete =  () => {
-        const status = deleteThisCreator(id);
+        const error = deleteThisCreator(id);
     
-        if (status !== 200) {
+        if (!error) {
             console.error('Error deleting data!');
+            swal({
+                icon: "warning",
+                title: "Fail!",
+                text: "Failing deleting this data! Please try again next time!"
+            });
         } else {
             console.log('Data deleted successfully!');
-            swal(
-                'Deleted!',
-                'The creator has been deleted.',
-                'success'
-            );
+            swal({
+                icon: "success",
+                title: "Success!",
+                text: "Deleted this conten creator successfully!"
+            });
         }
         navigate("/");
     }
